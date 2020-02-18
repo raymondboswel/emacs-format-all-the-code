@@ -575,7 +575,7 @@ Consult the existing formatters for examples of BODY."
   (:install "npm install --global prettier @prettier/plugin-php prettier-plugin-solidity")
   (:languages
    "CSS" "GraphQL" "JavaScript" "JSON" "JSX" "Less" "Markdown" "PHP"
-   "SCSS" "Solidity" "TSX" "TypeScript" "Vue" "YAML"
+   "SCSS" "Solidity" "TSX" "TypeScript" "Vue" "YAML" "Ruby"
    ;; TODO: Use html-tidy instead of prettier for plain HTML. Enable
    ;; prettier's HTML support once we have multi-formatter support.
    ;; "HTML"
@@ -599,16 +599,6 @@ Consult the existing formatters for examples of BODY."
   (:languages "PureScript")
   (:format (format-all--buffer-easy executable "-")))
 
-(define-format-all-formatter rufo
-  (:executable "rufo")
-  (:install "gem install rufo")
-  (:languages "Ruby")
-  (:format
-   (format-all--buffer-easy
-    executable
-    "--simple-exit"
-    (when (buffer-file-name)
-      (list "--filename" (buffer-file-name))))))
 
 (define-format-all-formatter rustfmt
   (:executable "rustfmt")
@@ -863,3 +853,4 @@ or zero, and enabled otherwise."
 (provide 'format-all)
 
 ;;; format-all.el ends here
+
